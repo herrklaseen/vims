@@ -1,3 +1,4 @@
+set encoding=utf-8
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -7,6 +8,8 @@ call vundle#rc()
 " Solarized stuff
 syntax enable
 set background=light
+
+set clipboard=unnamed
 
 " let Vundle manage Vundle
 " required! 
@@ -43,3 +46,5 @@ call togglebg#map("<F5>")
 
 " whitespace hiliter
 :set list lcs=trail:·,tab:›·
+
+" autocommands

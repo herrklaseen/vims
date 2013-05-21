@@ -47,4 +47,9 @@ call togglebg#map("<F5>")
 " whitespace hiliter
 :set list lcs=trail:·,tab:›·
 
+" timing
+:set tm=500
+
 " autocommands
+:au InsertEnter * set nolist
+:au InsertLeave * set list

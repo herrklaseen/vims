@@ -32,6 +32,7 @@ filetype plugin indent on     " required!
 
 :set number
 :let mapleader = ","
+:set tabstop=8 softtabstop=2 shiftwidth=2 expandtab
 
 " mappings
 "

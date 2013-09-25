@@ -48,9 +48,18 @@ call togglebg#map("<F5>")
 " whitespace hiliter
 :set list lcs=trail:·,tab:›·
 
+" more apparent active buffer
+hi StatusLine   ctermfg=230  ctermbg=125  cterm=none gui=none
+
+" and I want column numbers
+set rulerformat=col\ %c
+set ruler
+
 " timing
 :set tm=500
 
 " autocommands
 :au InsertEnter * set nolist
 :au InsertLeave * set list
+:au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+:au WinLeave * setlocal nocursorline

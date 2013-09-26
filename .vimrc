@@ -42,6 +42,13 @@ filetype plugin indent on     " required!
 :nnoremap <Leader>j o<Esc>0Dk<CR>
 :nnoremap <Leader>k O<Esc>0Dj<CR>
 
+" window switching sanity
+"
+:nnoremap <C-h> <C-w>h
+:nnoremap <C-j> <C-w>j
+:nnoremap <C-k> <C-w>k
+:nnoremap <C-l> <C-w>l
+
 " function to switch light and dark background
 call togglebg#map("<F5>")
 

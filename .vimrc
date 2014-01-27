@@ -49,6 +49,10 @@ filetype plugin indent on     " required!
 :nnoremap <C-k> <C-w>k
 :nnoremap <C-l> <C-w>l
 
+" Use dot command in visual mode
+
+:xnoremap . :normal.<CR>
+
 " function to switch light and dark background
 call togglebg#map("<F5>")
 

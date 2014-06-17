@@ -18,10 +18,12 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'blueyed/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'cakebaker/scss-syntax.vim'
 
 colorscheme solarized
 
@@ -66,6 +68,9 @@ hi StatusLine   ctermfg=230  ctermbg=125  cterm=none gui=none
 " and I want column numbers
 set rulerformat=col\ %c
 set ruler
+
+" font selection for GUI
+set guifont=Source\ Code\ Pro:h13
 
 " timing
 :set tm=500

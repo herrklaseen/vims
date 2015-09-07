@@ -2,36 +2,39 @@ set encoding=utf-8
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Solarized stuff
-syntax enable
-set background=light
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 set clipboard=unnamed
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'blueyed/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'cakebaker/scss-syntax.vim'
-
-colorscheme solarized
+Plugin 'blueyed/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'cakebaker/scss-syntax.vim'
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 
-filetype plugin indent on     " required!
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+" Solarized stuff
+colorscheme solarized
+syntax enable
+set background=light
 
 :set number
 :let mapleader = ","

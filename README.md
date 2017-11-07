@@ -6,4 +6,4 @@ My vim setup. Version controlled, because I garbled my .vimrc by accident and ha
 
 ## Windows installation
 
-Create a link to _winvimrc in whatever ``$VIM`` expands to. Call the link ``_vimrc``. Vundle will try to install plugins into the ``$HOME\.vim\`` directory, so you need to look into where that variable points. 
+Create a link to ``_winvimrc`` in whatever ``$VIM`` expands to. Call the link ``_vimrc``. By providing a path to ``Vundle#begin()`` you can specify where to install bundles. Closely related to ``rtp``.

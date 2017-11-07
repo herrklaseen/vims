@@ -1,11 +1,16 @@
 set encoding=utf-8
 set nocompatible               " be iMproved
 filetype off                   " required!
+set t_Co=256
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 set clipboard=unnamed
+
+" Ignore these please
+"
+set wildignore+=*\\dist\\*,*\\tmp\\*,*\\node_modules\\*,**\\compiled\\*,**\\www\\*,.swp,*.zip,*.exe
 
 " let Vundle manage Vundle
 " required! 
@@ -14,12 +19,10 @@ Plugin 'VundleVim/Vundle.vim'
 " My Bundles here:
 "
 " original repos on github
-Plugin 'blueyed/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'flazz/vim-colorschemes'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -31,49 +34,64 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-" Solarized stuff
-colorscheme solarized
+colorscheme Tomorrow-Night
 syntax enable
-set background=light
+
+if &diff
+  colorscheme monokai
+endif
 
 :set number
 :let mapleader = ","
-:set tabstop=8 softtabstop=2 shiftwidth=2 expandtab
+:set tabstop=8 softtabstop=4 shiftwidth=4 expandtab
+" Make search case insensitive at startup
+:set ignorecase
 
-" mappings
+"
+" MAPPINGS
 "
 :nnoremap <Leader>nt :NERDTreeToggle<CR>
-:nnoremap <Leader>st :set tabstop=8 softtabstop=2 shiftwidth=2 expandtab<CR>
+" changes to tabs as spaces AKA 'spacetabs'
+:nnoremap <Leader>st :set tabstop=8 softtabstop=4 shiftwidth=4 expandtab<CR>
+" changes to tabs as tabs AKA 'realtabs'
 :nnoremap <Leader>rt :set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab<CR>
+:nnoremap <Leader>cdc :cd ~/Code<CR> :NERDTreeCWD<CR>
 :nnoremap <Leader>j o<Esc>0Dk<CR>
 :nnoremap <Leader>k O<Esc>0Dj<CR>
+:nnoremap <Leader>cs :set ignorecase!<CR>
 
 " window switching sanity
-"
 :nnoremap <C-h> <C-w>h
 :nnoremap <C-j> <C-w>j
 :nnoremap <C-k> <C-w>k
 :nnoremap <C-l> <C-w>l
 
+"
+" END MAPPINGS
+"
+
 " Use dot command in visual mode
-
 :xnoremap . :normal.<CR>
-
-" function to switch light and dark background
-call togglebg#map("<F5>")
 
 " whitespace hiliter
 :set list lcs=trail:·,tab:›·
 
 " more apparent active buffer
+" does this work?
 hi StatusLine   ctermfg=230  ctermbg=125  cterm=none gui=none
 
 " and I want column numbers
 set rulerformat=col\ %c
 set ruler
 
-" font selection for GUI
-set guifont=Source\ Code\ Pro:h13
+" GUI
+if has("gui_running")
+  set guifont=Source\ Code\ Pro:h13
+  set guioptions -=T
+  set guioptions -=m
+  set guioptions -=r
+  set guioptions -=L
+endif
 
 " timing
 :set tm=500

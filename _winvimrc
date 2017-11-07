@@ -55,7 +55,9 @@ endif
 " MAPPINGS
 "
 :nnoremap <Leader>nt :NERDTreeToggle<CR>
+" changes to tabs as spaces AKA 'spacetabs'
 :nnoremap <Leader>st :set tabstop=8 softtabstop=4 shiftwidth=4 expandtab<CR>
+" changes to tabs as tabs AKA 'realtabs'
 :nnoremap <Leader>rt :set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab<CR>
 :nnoremap <Leader>cdc :cd ~/Code<CR> :NERDTreeCWD<CR>
 :nnoremap <Leader>j o<Esc>0Dk<CR>

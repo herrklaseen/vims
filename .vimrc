@@ -1,6 +1,8 @@
 set encoding=utf-8
 set nocompatible               " be iMproved
 filetype off                   " required!
+set backspace=2
+set backspace=indent,eol,start
 set t_Co=256
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,7 +12,7 @@ set clipboard=unnamed
 
 " Ignore these please
 "
-set wildignore+=*\\dist\\*,*\\tmp\\*,*\\node_modules\\*,**\\compiled\\*,**\\www\\*,.swp,*.zip,*.exe
+set wildignore+=*/dist/*,*/tmp/*,*/node_modules/*,**/compiled/*,**/www/*,*.swp,*.zip,*.exe
 
 " let Vundle manage Vundle
 " required! 
@@ -53,6 +55,8 @@ endif
 :nnoremap <Leader>nt :NERDTreeToggle<CR>
 " changes to tabs as spaces AKA 'spacetabs'
 :nnoremap <Leader>st :set tabstop=8 softtabstop=4 shiftwidth=4 expandtab<CR>
+" changes to tabs as spaces, 2 per tab, AKA 'spacetabs'
+:nnoremap <Leader>st2 :set tabstop=8 softtabstop=2 shiftwidth=2 expandtab<CR>
 " changes to tabs as tabs AKA 'realtabs'
 :nnoremap <Leader>rt :set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab<CR>
 :nnoremap <Leader>cdc :cd ~/Code<CR> :NERDTreeCWD<CR>

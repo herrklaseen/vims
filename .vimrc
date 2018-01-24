@@ -25,6 +25,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'w0rp/ale'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -105,3 +106,9 @@ endif
 :au InsertLeave * set list
 :au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 :au WinLeave * setlocal nocursorline
+
+" linting
+"
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}

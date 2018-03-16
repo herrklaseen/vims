@@ -26,6 +26,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'w0rp/ale'
+Plugin 'leafgarland/typescript-vim'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -39,6 +40,10 @@ filetype plugin indent on    " required
 
 colorscheme Tomorrow-Night
 syntax enable
+
+" Better error hightlighting from ALE
+highlight ALEError ctermbg=53 guifg=#5f005f
+highlight ALEErrorSign ctermbg=none ctermfg=139 guifg=#b294bb
 
 if &diff
   colorscheme monokai

@@ -69,6 +69,7 @@ endif
 :nnoremap <Leader>j o<Esc>0Dk<CR>
 :nnoremap <Leader>k O<Esc>0Dj<CR>
 :nnoremap <Leader>cs :set ignorecase!<CR>
+:nnoremap <Leader>ks :%s/\s\+$//e<CR>
 
 " window switching sanity
 :nnoremap <C-h> <C-w>h

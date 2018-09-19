@@ -37,6 +37,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
+packadd! matchit
 
 colorscheme Tomorrow-Night
 syntax enable
@@ -70,6 +71,7 @@ endif
 :nnoremap <Leader>k O<Esc>0Dj<CR>
 :nnoremap <Leader>cs :set ignorecase!<CR>
 :nnoremap <Leader>ks :%s/\s\+$//e<CR>
+:vnoremap <Leader>tosq :s/"/'/g<CR>
 
 " window switching sanity
 :nnoremap <C-h> <C-w>h
@@ -115,6 +117,7 @@ endif
 
 " linting
 "
+let g:ale_linters = {'html': []}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}

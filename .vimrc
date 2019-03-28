@@ -27,6 +27,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'w0rp/ale'
 Plugin 'leafgarland/typescript-vim'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 
 " vim-scripts repos
 Plugin 'L9'

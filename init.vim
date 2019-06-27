@@ -64,6 +64,7 @@ endif
 :nnoremap <Leader>ks :%s/\s\+$//e<CR>
 :nnoremap <Leader>q :noh<CR>
 :vnoremap <Leader>tosq :s/"/'/g<CR>
+:nnoremap <Leader>jp :%!python -m json.tool<CR>
 
 " window switching sanity
 :nnoremap <C-h> <C-w>h

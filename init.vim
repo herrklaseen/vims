@@ -30,7 +30,7 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-colorscheme Tomorrow-Night-Henko
+colorscheme Tomorrow-Night
 syntax enable
 
 " Better error hightlighting from ALE

@@ -18,8 +18,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'flazz/vim-colorschemes'
-Plug 'w0rp/ale'
-Plug 'leafgarland/typescript-vim'
+Plug 'dense-analysis/ale'
+" Plug 'leafgarland/typescript-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rafi/awesome-vim-colorschemes'
@@ -65,6 +65,7 @@ endif
 :nnoremap <Leader>q :noh<CR>
 :vnoremap <Leader>tosq :s/"/'/g<CR>
 :nnoremap <Leader>jp :%!python -m json.tool<CR>
+:nnoremap <Leader>af :ALEFix<CR>
 
 " window switching sanity
 :nnoremap <C-h> <C-w>h
@@ -113,10 +114,12 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " linting
 "
 let g:ale_linters = {'html': [],
-\   'typescript': ['tslint', 'tsserver', 'typecheck'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
 \}
 
 let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"

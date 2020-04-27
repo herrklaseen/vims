@@ -19,10 +19,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'flazz/vim-colorschemes'
 Plug 'dense-analysis/ale'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rafi/awesome-vim-colorschemes'
+
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -36,6 +37,7 @@ syntax enable
 " Better error hightlighting from ALE
 highlight ALEError ctermbg=53 guifg=#5f005f
 highlight ALEErrorSign ctermbg=none ctermfg=139 guifg=#b294bb
+highlight SpellCap ctermbg=53
 
 if &diff
   colorscheme monokai
@@ -113,13 +115,15 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 " linting
 "
-let g:ale_linters = {'html': [],
+let g:ale_linters = {
+\   'html': ['eslint'],
 \   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
+\   'typescript': ['eslint', 'tsserver'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
+\   'json': ['fixjson'],
 \}
 
 let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"

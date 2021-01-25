@@ -17,13 +17,15 @@ set wildignore+=*/dist/*,*/tmp/*,*/node_modules/*,**/compiled/*,**/www/*,*.swp,*
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'rafi/awesome-vim-colorschemes'
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -39,13 +41,17 @@ highlight ALEError ctermbg=53 guifg=#5f005f
 highlight ALEErrorSign ctermbg=none ctermfg=139 guifg=#b294bb
 highlight SpellCap ctermbg=53
 
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
 if &diff
   colorscheme monokai
 endif
 
 :set number
 :let mapleader = ","
-:set tabstop=8 softtabstop=4 shiftwidth=4 expandtab
+:set tabstop=8 softtabstop=2 shiftwidth=2 expandtab
 " Make search case insensitive at startup
 :set ignorecase
 
@@ -58,7 +64,7 @@ endif
 " changes to tabs as spaces, 2 per tab, AKA 'spacetabs'
 :nnoremap <Leader>st2 :set tabstop=8 softtabstop=2 shiftwidth=2 expandtab<CR>
 " changes to tabs as tabs AKA 'realtabs'
-:nnoremap <Leader>rt :set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab<CR>
+:nnoremap <Leader>rt :set tabstop=3 softtabstop=3 shiftwidth=3 noexpandtab<CR>
 :nnoremap <Leader>cdc :cd ~/Code<CR> :NERDTreeCWD<CR>
 :nnoremap <Leader>j o<Esc>0Dk<CR>
 :nnoremap <Leader>k O<Esc>0Dj<CR>
@@ -118,12 +124,10 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:ale_linters = {
 \   'html': ['eslint'],
 \   'javascript': ['eslint'],
-\   'typescript': ['eslint', 'tsserver'],
+\   'typescript': ['tslint', 'tsserver'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
+\   'typescript': ['tslint'],
 \   'json': ['fixjson'],
 \}
-
-let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"

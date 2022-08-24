@@ -19,7 +19,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
-"Plug 'dense-analysis/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -33,13 +32,22 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-colorscheme Tomorrow-Night
+set termguicolors
+colorscheme gruvbox
 syntax enable
 
-" Better error hightlighting from ALE
-highlight ALEError ctermbg=53 guifg=#5f005f
-highlight ALEErrorSign ctermbg=none ctermfg=139 guifg=#b294bb
-highlight SpellCap ctermbg=53
+if exists("*ToggleBackground") == 0
+  function ToggleBackground()
+    if &background == "dark"
+      set background=light
+    else
+      set background=dark
+    endif
+  endfunction
+
+  command BG call ToggleBackground()
+endif
+
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
@@ -74,6 +82,7 @@ endif
 :vnoremap <Leader>tosq :s/"/'/g<CR>
 :nnoremap <Leader>jp :%!python -m json.tool<CR>
 :nnoremap <Leader>af :ALEFix<CR>
+:nnoremap <F5> :BG<CR>
 
 " window switching sanity
 :nnoremap <C-h> <C-w>h
@@ -119,15 +128,4 @@ set ruler
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd q | exe 'cd '.argv()[0] | endif
 
-" linting
-"
-let g:ale_linters = {
-\   'html': ['eslint'],
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint', 'tsserver'],
-\}
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint'],
-\   'json': ['fixjson'],
-\}
+:set backupcopy=yes
